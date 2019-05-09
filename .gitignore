@@ -1,0 +1,10 @@
+target/
+*/target/
+*.iml
+.idea/
+*.sql
+*.h2
+*.class
+*.db
+*.log
+/test/

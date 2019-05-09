@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>to-jda</module>
+        <module>to-bukkit</module>
     </modules>
     <distributionManagement>
         <repository>
@@ -58,4 +59,11 @@
             </plugin>
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>me.kingtux</groupId>
+            <artifactId>tuxorm</artifactId>
+            <version>1.2.4</version>
+        </dependency>
+    </dependencies>
 </project>
