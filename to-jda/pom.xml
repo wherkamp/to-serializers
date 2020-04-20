@@ -7,19 +7,19 @@
     <parent>
         <groupId>me.kingtux</groupId>
         <artifactId>to-serializers</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>to-jda</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <distributionManagement>
         <repository>
             <id>kingtux-repo</id>
-            <url>https://repo.kingtux.me/repository/maven-releases/</url>
+            <url>https://repo.kingtux.me/storages/maven/kingtux-repo</url>
         </repository>
         <snapshotRepository>
             <id>kingtux-repo</id>
-            <url>https://repo.kingtux.me/repository/maven-snapshots/</url>
+            <url>https://repo.kingtux.me/storages/maven/kingtux-repo</url>
         </snapshotRepository>
     </distributionManagement>
     <build>
@@ -39,50 +39,32 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.0.2</version>
             </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
-                <executions>
-                    <execution>
-                        <id>default-deploy</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <serverId>kingtux-repo</serverId>
-                    <nexusUrl>https://repo.kingtux.me/repository/maven-releases/</nexusUrl>
-                    <skipStaging>true</skipStaging>
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
     <repositories>
         <repository>
             <id>kingtux-repo</id>
-            <url>http://repo.kingtux.me/repository/maven-public/</url>
+            <url>https://repo.kingtux.me/storages/maven/kingtux-repo</url>
         </repository>
         <repository>
             <id>jcenter</id>
             <name>jcenter-bintray</name>
-            <url>http://jcenter.bintray.com</url>
+            <url>https://jcenter.bintray.com/</url>
         </repository>
-
     </repositories>
     <dependencies>
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>3.8.1_437</version>
+            <version>4.1.1_108</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>me.kingtux</groupId>
             <artifactId>tuxorm</artifactId>
-            <version>1.2.4</version>
+            <version>1.4.RC1</version>
         </dependency>
     </dependencies>
+
 </project>

@@ -1,7 +1,8 @@
 package me.kingtux.tuxorm.bukkit;
 
-import me.kingtux.tuxjsql.core.Column;
-import me.kingtux.tuxjsql.core.CommonDataTypes;
+import dev.tuxjsql.basic.sql.BasicDataTypes;
+import dev.tuxjsql.core.builders.ColumnBuilder;
+
 import me.kingtux.tuxorm.TOConnection;
 import me.kingtux.tuxorm.serializers.SingleSecondarySerializer;
 import org.bukkit.Bukkit;
@@ -25,8 +26,9 @@ public class PlayerSerializer implements SingleSecondarySerializer<OfflinePlayer
     public OfflinePlayer buildFromSimplifiedValue(String value) {
         return Bukkit.getOfflinePlayer(UUID.fromString(value));
     }
+
     @Override
-    public Column createColumn(String name) {
-        return connection.getBuilder().createColumn(name, CommonDataTypes.TEXT);
+    public ColumnBuilder createColumn(String name) {
+        return connection.getBuilder().createColumn().name(name).setDataType(BasicDataTypes.TEXT);
     }
 }

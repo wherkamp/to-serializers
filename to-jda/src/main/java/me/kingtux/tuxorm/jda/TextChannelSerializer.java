@@ -1,16 +1,22 @@
 package me.kingtux.tuxorm.jda;
 
-import me.kingtux.tuxjsql.core.Column;
-import me.kingtux.tuxjsql.core.CommonDataTypes;
+import dev.tuxjsql.basic.sql.BasicDataTypes;
+
+import dev.tuxjsql.core.builders.ColumnBuilder;
+import dev.tuxjsql.core.sql.SQLColumn;
+import me.kingtux.tuxorm.TOConnection;
 import me.kingtux.tuxorm.serializers.SingleSecondarySerializer;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.entities.TextChannel;
+
 
 public class TextChannelSerializer implements SingleSecondarySerializer<TextChannel, Long> {
     private JDA jda;
+    private TOConnection connection;
 
-    public TextChannelSerializer(JDA jda) {
+    public TextChannelSerializer(JDA jda, TOConnection connection) {
         this.jda = jda;
+        this.connection = connection;
     }
 
     @Override
@@ -24,7 +30,7 @@ public class TextChannelSerializer implements SingleSecondarySerializer<TextChan
     }
 
     @Override
-    public Column createColumn(String s) {
-        return Column.create().name(s).type(CommonDataTypes.BIGINT).build();
+    public ColumnBuilder createColumn(String s) {
+        return connection.getBuilder().createColumn().name(s).setDataType(BasicDataTypes.INTEGER);
     }
 }
